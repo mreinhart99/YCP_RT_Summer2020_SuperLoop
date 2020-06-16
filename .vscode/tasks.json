@@ -26,21 +26,25 @@
             "osx": {
                 "command": "/usr/bin/clang++",
                 "args": [
-                    "-std=c++17",
-                    "-stdlib=libc++",
                     "-g",
-                    "${workspaceFolder}\\*.cpp",
+                    "*.cpp",
                     "-o",
                     "MainApplicationOSX.exe"
                 ],
                 "options": {
                     "cwd": "${workspaceFolder}"
                 },
-                "problemMatcher": ["$gcc"],
+                "problemMatcher": [
+                    "$gcc"
+                ],
                 "group": {
                     "kind": "build",
                     "isDefault": true
                 }
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
             }
         }
     ]
