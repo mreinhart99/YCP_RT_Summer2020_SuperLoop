@@ -3,24 +3,44 @@
     "tasks": [
         {
             "type": "shell",
-            "label": "C/C++: cl.exe build active file",
-            "command": "cl.exe",
-            "args": [
-                "/Zi",
-                "/EHsc",
-                "/Fe:",
-                "${fileDirname}\\${fileBasenameNoExtension}.exe",
-                "${workspaceFolder}\\*.cpp"
-            ],
-            "options": {
-                "cwd": "${workspaceFolder}"
+            "label": "Windows - g++.exe build active file. OSX - clang++ build active file",
+            "windows": {
+                "command": "C:\\MinGW\\bin\\g++.exe",
+                "args": [
+                    "-g",
+                    "${workspaceFolder}\\*.cpp",
+                    "-o",
+                    "MainApplicationWindows.exe"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+                "problemMatcher": [
+                    "$gcc"
+                ],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
             },
-            "problemMatcher": [
-                "$msCompile"
-            ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
+            "osx": {
+                "command": "/usr/bin/clang++",
+                "args": [
+                    "-std=c++17",
+                    "-stdlib=libc++",
+                    "-g",
+                    "${workspaceFolder}\\*.cpp",
+                    "-o",
+                    "MainApplicationOSX.exe"
+                ],
+                "options": {
+                    "cwd": "${workspaceFolder}"
+                },
+                "problemMatcher": ["$gcc"],
+                "group": {
+                    "kind": "build",
+                    "isDefault": true
+                }
             }
         }
     ]
