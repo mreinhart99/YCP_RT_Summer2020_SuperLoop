@@ -74,3 +74,27 @@ bool Timer::Ticker::updated()
 {
 	return _update;
 }
+
+bool Timer::Ticker::isMax(){
+	bool atMax = false;
+	_end = std::chrono::system_clock::now();
+	_elapsed = _end - _start;
+	int e = (int)(_elapsed.count() * 1000);
+	if (e >= _tick_duration && e > 0)
+	{
+		_update = true;
+		int t = (e - (e % _tick_duration)) / _tick_duration;
+		_current_tick += t;
+		if (_current_tick >= _max_tick)
+		{
+			atMax = true;
+			_current_tick = 0;
+		}
+		_start = _end;
+	}
+	else
+	{
+		_update = false;
+	}
+	return atMax;
+}

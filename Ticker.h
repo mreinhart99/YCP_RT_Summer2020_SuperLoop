@@ -34,6 +34,7 @@ namespace Timer
 		void start();   // Starts the timer
 		void reset();   // Resets the timer
 		bool updated(); // If the tick count has changed
+		bool isMax(); 	// If the tick count is at max
 	};
 };
 
