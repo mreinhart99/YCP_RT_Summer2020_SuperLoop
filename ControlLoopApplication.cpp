@@ -46,7 +46,7 @@ int main()
 		int NumTicks = t.get_tick();
 		if (t.updated()) {
 			
-			std::cout << NumTicks << std::endl; // Printing the current tick of the ticker t
+			//std::cout << NumTicks << std::endl; // Printing the current tick of the ticker t
 
 			if (NumTicks == 1)
 				AzimuthEventFlag = true;
