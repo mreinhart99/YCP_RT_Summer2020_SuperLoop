@@ -9,7 +9,7 @@ bool AzimuthEventFlag = false;
 bool ElevationEventFlag = false;
 bool TempEventFlag = false;
 
-//Hello, World.
+
 
 int main()
 {
